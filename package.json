@@ -1,0 +1,14 @@
+{
+  "name": "11ty_guide",
+  "version": "1.0.0",
+  "description": "11ty Spike of JetBrains Tips Guide",
+  "main": "index.js",
+  "scripts": {
+    "serve": "eleventy --serve"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.10.0"
+  }
+}

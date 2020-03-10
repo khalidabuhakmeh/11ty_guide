@@ -1,0 +1,31 @@
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">{{ title }}</h1>
+  <p class="lead">{{ description }}</p>
+</div>
+
+
+{%- for tip in collections[key] -%}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">{{ tip.data.title}}</h5>
+              <p class="card-text">{{ tip.data.description }}</p>
+              <div class="text-right">
+                <a href="{{ tip.url }}" class="btn btn-primary btn-sm">Read More</a>
+              </div>
+            </div>
+            <div class="card-footer text-muted">
+              {% assign taggers = tip.data.tags | exclude: "tips" %}          
+              {%- for tag in taggers -%}
+              {% assign category = collections.categories | withCategory: tag %}
+              <a href="{{ category.url }}" class="badge badge-primary">
+                {{ category.data.name }}
+              </a>
+              {%- endfor -%}
+            </div>
+        </div>
+    </div>
+</div>
+{%- endfor -%}
